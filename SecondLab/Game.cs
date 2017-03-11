@@ -35,6 +35,8 @@ namespace SecondLab
                         }
                         }
                 }
+
+               
             }
         }
 
@@ -57,9 +59,9 @@ namespace SecondLab
                 {
                     if (field[i] == field[j] && i != j)
                     {
-                        throw new Exception("Error: A");
+                        throw new Exception("Error: The values are repeated");
                     }
-                    else continue;
+                    
                 }
             }
         }
@@ -68,6 +70,18 @@ namespace SecondLab
         {
             
             return location[value];
+        }
+
+        public int this[int x, int y]
+        {
+            get
+            {
+                return Field[x, y];
+            }
+            set
+            {
+                Field[x, y] = value;
+            }
         }
 
 
@@ -81,7 +95,7 @@ namespace SecondLab
 
             if ((Math.Abs(selectedPoint.x - zeroPoint.x) == 1 && (selectedPoint.y == zeroPoint.y)) ||
               (Math.Abs(selectedPoint.y - zeroPoint.y) == 1 && (selectedPoint.x == zeroPoint.x)))
-            { 
+            
 
             {
                     var t = Field[zeroPoint.x, zeroPoint.y];
@@ -93,23 +107,13 @@ namespace SecondLab
                     location[t] = location[Field[zeroPoint.x, zeroPoint.y]];
                     location[Field[zeroPoint.x, zeroPoint.y]] = temp;
 
-
-                }
-                return true; }
+                return true;
+            }
+               
 
 
             else return false;
-
-              
-            
-
-
-
         }
-
-
-
-        
 
 
         public bool End_of_the_game()

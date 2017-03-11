@@ -8,7 +8,7 @@ namespace SecondLab
 {
     class Locations
     {
-        public int x, y;
+        public readonly int x, y;
 
 
         public Locations(int a, int b)
