@@ -39,7 +39,7 @@ namespace SecondLab
                     goto start;
                 }
                 game.Print();
-
+                 
             }
 
             Console.WriteLine("Game over. You win!");
