@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SecondLab
 {
-    class Coordinates
+    class Locations
     {
         public int x, y;
 
 
-        public Coordinates(int a, int b)
+        public Locations(int a, int b)
         {
             x = a;
             y = b;

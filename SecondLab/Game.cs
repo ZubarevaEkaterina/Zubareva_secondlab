@@ -9,7 +9,7 @@ namespace SecondLab
   class Game
     { private int Size_of_field;
         public int[,] Field { get; set; }
-        private Coordinates[] coordinates;
+        private Locations[] location;
 
         public Game(params int[] field)
         {
@@ -31,7 +31,7 @@ namespace SecondLab
 
 
                 Field = new int[Size_of_field, Size_of_field];
-                coordinates = new Coordinates[field.Length];
+                location = new Locations[field.Length];
 
                 int index = 0;
                 for (int x = 0; x < Size_of_field; x++)
@@ -41,7 +41,7 @@ namespace SecondLab
                         if (index != field.Length)
                         {
                             Field[x, y] = field[index];
-                            coordinates[field[index]] = new Coordinates(x, y);
+                            location[field[index]] = new Locations(x, y);
                             index++;
                         }
                         }
@@ -50,19 +50,19 @@ namespace SecondLab
         }
 
 
-        public Coordinates GetLocation(int value)
+        public Locations GetLocation(int value)
         {
             
-            return coordinates[value];
+            return location[value];
         }
 
 
         public bool Shift(int value)
         {
             
-            Coordinates zeroPoint = GetLocation(0);
+            Locations zeroPoint = GetLocation(0);
     
-            Coordinates selectedPoint = GetLocation(value);
+            Locations selectedPoint = GetLocation(value);
 
 
             if ((Math.Abs(selectedPoint.x - zeroPoint.x) == 1 && (selectedPoint.y == zeroPoint.y)) ||
@@ -75,9 +75,9 @@ namespace SecondLab
                     Field[selectedPoint.x, selectedPoint.y] = t;
 
 
-                    Coordinates temp = coordinates[t];
-                    coordinates[t] = coordinates[Field[zeroPoint.x, zeroPoint.y]];
-                    coordinates[Field[zeroPoint.x, zeroPoint.y]] = temp;
+                    Locations temp = location[t];
+                    location[t] = location[Field[zeroPoint.x, zeroPoint.y]];
+                    location[Field[zeroPoint.x, zeroPoint.y]] = temp;
 
 
                 }
@@ -95,18 +95,7 @@ namespace SecondLab
 
 
 
-        public void Print()
-        {
-            for (int x = 0; x <Field.GetLength(0); ++x)
-            {
-                for (int y = 0; y < Field.GetLength(1); ++y)
-                {
-                    Console.Write(Field[x, y] + " ");
-                }
-                Console.WriteLine();
-            }
-
-        }
+        
 
 
         public bool End_of_the_game()

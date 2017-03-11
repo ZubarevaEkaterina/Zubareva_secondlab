@@ -12,8 +12,8 @@ namespace SecondLab
         {
 
             Game game = new Game(1, 2, 3, 4, 5, 6, 7, 0, 8);
+            Printer.Print(game);
 
-            game.Print();
 
             while (!game.End_of_the_game())
             {
@@ -35,11 +35,11 @@ namespace SecondLab
                 if (game.Shift(value) == false)
                 {
                     Console.WriteLine("Error: Change your value, because you can't move it");
-                    game.Print();
+                    Printer.Print(game);
                     goto start; 
                 }
-                game.Print();
-                 
+                Printer.Print(game);
+
             }
 
             Console.WriteLine("Game over. You win!");
