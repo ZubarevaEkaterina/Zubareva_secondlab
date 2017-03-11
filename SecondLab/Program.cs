@@ -23,7 +23,6 @@ namespace SecondLab
                 int value = 0;
                 value = Convert.ToInt32(Console.ReadLine());
 
-              
                 if (value <= 0 || value >= game.Field.Length)
                 {
 

@@ -14,19 +14,9 @@ namespace SecondLab
         public Game(params int[] field)
         {
             {
-
-                if (field.Length % Math.Sqrt(field.Length) != 0)
-                {
-                    throw new ArgumentException("Error: Wrong number of parameters");
-                }
-
-                if (Array.IndexOf(field, 0) < 0)
-                {
-                    throw new Exception("Error: All cells are filled");
-                }
-
+                Check(field);
+             
                 Size_of_field = Convert.ToInt32(Math.Sqrt(field.Length));
-
 
                 Field = new int[Size_of_field, Size_of_field];
                 
@@ -48,6 +38,31 @@ namespace SecondLab
             }
         }
 
+
+        public void Check(int[] field)
+        {
+            if (field.Length % Math.Sqrt(field.Length) != 0)
+            {
+                throw new ArgumentException("Error: Wrong number of parameters");
+            }
+
+            if (Array.IndexOf(field, 0) < 0)
+            {
+                throw new Exception("Error: All cells are filled");
+            }
+
+            for (int i = 0; i < field.Length; i++)
+            {
+                for (int j = 0; j < field.Length; j++)
+                {
+                    if (field[i] == field[j] && i != j)
+                    {
+                        throw new Exception("Error: A");
+                    }
+                    else continue;
+                }
+            }
+        }
 
         public Locations GetLocation(int value)
         {
