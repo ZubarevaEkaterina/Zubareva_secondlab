@@ -36,7 +36,7 @@ namespace SecondLab
                 {
                     Console.WriteLine("Error: Change your value, because you can't move it");
                     game.Print();
-                    goto start;
+                    goto start; 
                 }
                 game.Print();
                  
