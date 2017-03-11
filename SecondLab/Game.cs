@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace SecondLab
 {
   class Game
-    { private int Size_of_field;
-        public int[,] Field { get; set; }
+    {   public readonly int Size_of_field;
+        public readonly int[,] Field;
         private Locations[] location;
 
         public Game(params int[] field)
@@ -25,12 +25,11 @@ namespace SecondLab
                     throw new Exception("Error: All cells are filled");
                 }
 
-
-
                 Size_of_field = Convert.ToInt32(Math.Sqrt(field.Length));
 
 
                 Field = new int[Size_of_field, Size_of_field];
+                
                 location = new Locations[field.Length];
 
                 int index = 0;

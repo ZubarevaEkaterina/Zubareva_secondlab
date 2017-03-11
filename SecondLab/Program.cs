@@ -12,8 +12,8 @@ namespace SecondLab
         {
 
             Game game = new Game(1, 2, 3, 4, 5, 6, 7, 0, 8);
-            Printer.Print(game);
-
+             Printer.Print(game);
+            
 
             while (!game.End_of_the_game())
             {
