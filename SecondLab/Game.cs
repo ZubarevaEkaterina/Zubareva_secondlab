@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SecondLab
 {
@@ -14,7 +15,10 @@ namespace SecondLab
         public Game(params int[] field)
         {
             {
-                Check(field);
+             //   string line = @"C:\Users\User\Desktop\laba\text.csv";
+              //  FromCSV(line);
+
+              Check(field);
              
                 Size_of_field = Convert.ToInt32(Math.Sqrt(field.Length));
 
@@ -39,11 +43,14 @@ namespace SecondLab
                
             }
         }
+       
+
 
 
         public void Check(int[] field)
         {
-            if (field.Length % Math.Sqrt(field.Length) != 0)
+
+           if (field.Length % Math.Sqrt(field.Length) != 0)
             {
                 throw new ArgumentException("Error: Wrong number of parameters");
             }
@@ -68,7 +75,6 @@ namespace SecondLab
 
         public Locations GetLocation(int value)
         {
-            
             return location[value];
         }
 
@@ -134,7 +140,31 @@ namespace SecondLab
               return true;
 
         }
-        
+
+        public static Game FromCSV(string file)
+        {
+           
+            string[] lines = File.ReadAllLines(file);
+            int size = lines.Length;
+            string temp;
+            int[] numbers = new int[size * size];
+            int k = 0;
+
+          
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    temp = lines[i].Substring(0, lines[i].IndexOf(',')).Trim();
+                    numbers[k] = Convert.ToInt32(temp);
+                    lines[i] = lines[i].Substring(lines[i].IndexOf(','));
+                    k++;
+                }
+            }
+            return new Game(numbers);
+        }
+
     }
 }
     
