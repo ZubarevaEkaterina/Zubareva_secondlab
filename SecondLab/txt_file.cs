@@ -10,10 +10,10 @@ namespace SecondLab
 
     class txt_file
     {
-        public static int[] (StreamReader file)
+        public static int[] read_from_file(StreamReader file)
         {
             string line = file.ReadToEnd();
-            string[] spliter = line.Split(new Char[] { ' ' });
+            string[] spliter = line.Split(new Char[] { ' ', ',', ';' });
 
             int[] intspliter = new int[spliter.Length];
 
