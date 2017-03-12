@@ -14,11 +14,13 @@ namespace SecondLab
             Console.WriteLine("Do you want to take values for field from a file? \nYes - Y , no - press any other key");
             char answer;
             answer = Convert.ToChar(Console.ReadLine());
-            StreamReader file = new StreamReader(@"C:\Users\User\Desktop\laba\text.csv");
+         
+           
             Game game;
 
             if (answer == 'y' || answer == 'Y' || answer == 'Н' || answer == 'н' )
             {
+                StreamReader file = new StreamReader(@"C:\Users\User\Desktop\laba\text.csv");
                 game = new Game(txt_file.read_from_file(file));
             }
             else game = new Game(1, 2, 3, 4, 5, 6, 7, 8, 0);

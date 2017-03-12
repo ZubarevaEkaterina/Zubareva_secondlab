@@ -43,9 +43,6 @@ namespace SecondLab
             }
         }
 
-
-
-
         public void Check(int[] field)
         {
 

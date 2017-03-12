@@ -15,6 +15,7 @@ namespace SecondLab
             string line = file.ReadToEnd();
             string[] spliter = line.Split(new Char[] { ' ', ',', ';' });
 
+           
             int[] intspliter = new int[spliter.Length];
 
             for (int i = 0; i < intspliter.Length; i++)
