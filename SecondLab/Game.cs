@@ -86,8 +86,9 @@ namespace SecondLab
         public bool Shift(int value)
         {
 
-            Locations zeroPoint = GetLocation(0);
 
+            Locations zeroPoint = GetLocation(0);
+         
             Locations selectedPoint = GetLocation(value);
 
 
