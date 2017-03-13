@@ -24,7 +24,7 @@ namespace SecondLab
                 if (answer == 'y' || answer == 'Y' || answer == 'Н' || answer == 'н')
                 {
                     StreamReader file = new StreamReader(@"C:\Users\User\Desktop\laba\text.txt");
-                    game = new Game(txt_file.read_from_file(file));
+                    game = new Game(txt_file.reader(file));
                 }
                 else game = new Game(1, 2, 3, 4, 5, 6, 7, 0, 8);
 
