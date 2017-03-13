@@ -9,26 +9,23 @@ namespace SecondLab
 {
     class Game
     {
-        public readonly int Size_of_field;
+
         public readonly int[,] Field;
         private Locations[] location;
 
         public Game(params int[] field)
         {
             {
-
                 Check(field);
 
-                Size_of_field = Convert.ToInt32(Math.Sqrt(field.Length));
-
-                Field = new int[Size_of_field, Size_of_field];
+                Field = new int[Convert.ToInt32(Math.Sqrt(field.Length)), Convert.ToInt32(Math.Sqrt(field.Length))];
 
                 location = new Locations[field.Length];
 
                 int index = 0;
-                for (int x = 0; x < Size_of_field; x++)
+                for (int x = 0; x < Field.GetLength(0); x++)
                 {
-                    for (int y = 0; y < Size_of_field; y++)
+                    for (int y = 0; y < Field.GetLength(1); y++)
                     {
                         if (index != field.Length)
                         {
@@ -51,6 +48,7 @@ namespace SecondLab
                 throw new ArgumentException("Error: Wrong number of parameters");
             }
 
+
             if (Array.IndexOf(field, 0) < 0)
             {
                 throw new Exception("Error: All cells are filled");
@@ -62,7 +60,7 @@ namespace SecondLab
                 {
                     if (field[i] == field[j] && i != j)
                     {
-                        throw new Exception("Error: The values are repeated");
+                        throw new Exception("Error: Values are repeated");
                     }
 
                 }
@@ -74,16 +72,14 @@ namespace SecondLab
             return location[value];
         }
 
-        public int this[int x, int y]
+        public int this[int x, int y]  // позволяет определить, какое значение находится в игре по координате[x, y]. 
+
         {
             get
             {
                 return Field[x, y];
             }
-            set
-            {
-                Field[x, y] = value;
-            }
+
         }
 
 
@@ -122,9 +118,9 @@ namespace SecondLab
         {
 
             int k = 1;
-            for (int x = 0; x < Size_of_field; x++)
+            for (int x = 0; x < Field.GetLength(0); x++)
             {
-                for (int y = 0; y < Size_of_field; y++)
+                for (int y = 0; y < Field.GetLength(1); y++)
                 {
                     if (Field[x, y] != k && k < Field.Length)
 
@@ -139,4 +135,3 @@ namespace SecondLab
 
     }
 }
-    

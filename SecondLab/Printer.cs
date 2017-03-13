@@ -15,11 +15,11 @@ namespace SecondLab
             for (int x = 0; x < field.GetLength(0); ++x)
             {
                 for (int y = 0; y < field.GetLength(1); ++y)
-                 {
-                      Console.Write(field[x, y] + " ");
-                  }
-                  Console.WriteLine();
-              }
+                {
+                    Console.Write(field[x, y] + " ");
+                }
+                Console.WriteLine();
+            }
 
 
         }
